@@ -1,0 +1,53 @@
+<section class="contacts__container">
+  <h1 class="contacts__title">Contact List</h1>
+  <div class="contacts__header">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Search contacts..."
+      class="contacts__search"
+    />
+    <div class="contacts__image">
+      <img
+        class="image__icon"
+        src="/img/free-icon-add-contact-4466340.png"
+        (click)="openDialog()"
+        alt=""
+      />
+    </div>
+  </div>
+  <ul class="contacts__list">
+    <li *ngFor="let contact of filteredContacts" class="contacts__item">
+      <div [routerLink]="['/contact', contact.id]" class="item__left">
+        <div class="item__info">
+          <img
+            class="item__img"
+            src="/img/free-icon-human-4466332.png"
+            alt=""
+          />
+          <h3 class="item__name">{{ contact.name }}</h3>
+        </div>
+        <div class="item__info">
+          <img
+            class="item__img"
+            src="/img/free-icon-phone-call-5585562 (1).png"
+            alt=""
+          />
+          <p class="item__phone">{{ contact.phone }}</p>
+        </div>
+        <div class="item__info">
+          <img
+            class="item__img"
+            src="/img/free-icon-envelope-481659.png"
+            alt=""
+          />
+          <p class="item__email">{{ contact.email }}</p>
+        </div>
+      </div>
+		<div class="item__right">
+			<img (click)="deleteContact(contact)" class="item__img" src="/img/free-icon-delete-3395538.png" alt="">
+			<img (click)="openDialog(contact)" class="item__img" src="/img/free-icon-pencil-650143.png" alt="">
+		</div>
+    </li>
+  </ul>
+</section>

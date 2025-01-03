@@ -1,0 +1,48 @@
+<section class="modal">
+	<div class="modal__content">
+	  <h2 class="modal__title">{{ isNew ? 'Add Contact' : 'Edit Contact' }}</h2>
+	  <form class="modal__form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+		 <label class="form__label" for="name">Name:</label>
+		 <input class="form__input" formControlName="name" id="name" name="name" />
+		 <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched" class="error__message">
+			Name is required and must be at least 3 characters long.
+		 </div>
+ 
+		 <label class="form__label" for="lastName">Last Name:</label>
+		 <input class="form__input" formControlName="lastName" id="lastName" name="lastName" />
+		 <div *ngIf="myForm.get('lastName')?.invalid && myForm.get('lastName')?.touched" class="error__message">
+			Last Name is required and must be at least 3 characters long.
+		 </div>
+ 
+		 <label class="form__label" for="phone">Phone:</label>
+		 <input class="form__input" formControlName="phone" id="phone" name="phone" />
+		 <div *ngIf="myForm.get('phone')?.invalid && myForm.get('phone')?.touched" class="error__message">
+			Phone is required and must be a valid 10-digit number.
+		 </div>
+ 
+		 <label class="form__label" for="email">Email:</label>
+		 <input class="form__input" formControlName="email" id="email" name="email" />
+		 <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched" class="error__message">
+			A valid email is required.
+		 </div>
+ 
+		 <label class="form__label" for="dob">Date of Birth:</label>
+		 <input class="form__input" formControlName="dob" id="dob" name="dob" type="date" />
+		 <div *ngIf="myForm.get('dob')?.invalid && myForm.get('dob')?.touched" class="error__message">
+			Date of Birth is required.
+		 </div>
+ 
+		 <label class="form__label" for="address">Address:</label>
+		 <input class="form__input" formControlName="address" id="address" name="address" />
+		 <div *ngIf="myForm.get('address')?.invalid && myForm.get('address')?.touched" class="error__message">
+			Address is required.
+		 </div>
+ 
+		 <button class="form__button" type="submit" [disabled]="myForm.invalid">
+			{{ isNew ? 'Add Contact' : 'Update' }}
+		 </button>  
+		 <button class="close-button" type="button" (click)="onNoClick()">Cancel</button>
+	  </form>
+	</div>
+ </section>
+ 

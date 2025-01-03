@@ -1,0 +1,26 @@
+<section class="contact__section">
+	<div class="contact__header">
+	  <img class="contact__photo" alt="" />
+	  <h2 class="contact__name">{{ contact?.name }} {{contact?.lastName}}</h2>
+	</div>
+	<div class="contact__items">
+		<div class="contact__item">
+			<img class="item__img" src="/img/free-icon-envelope-481659.png" alt="">
+		   <p class="item__info">{{ contact?.email }}</p>
+		</div>
+		<div class="contact__item">
+			<img class="item__img" src="/img/free-icon-phone-call-5585562 (1).png" alt="">
+	      <p class="item__info">{{ contact?.phone}}</p>
+	   </div>
+	  <div class="contact__item">
+		<img class="item__img" src="/img/free-icon-date-1389446.png" alt="">
+	     <p class="item__info">{{ contact?.dob }}</p>
+	   </div>
+	  <div class="contact__item">
+		<img class="item__img" src="/img/free-icon-address-3838285.png" alt="">
+	      <p class="item__info"> {{ contact?.address }}</p>
+     </div>
+	</div>
+	   <button class="contact__button" routerLink="/">На головну</button>
+</section>
+ 
